@@ -6,13 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 import static tests.basicWebPage.getPageBasic;
+import static tests.elementAttributes.getElementAttributesDetails;
+import static tests.elementAttributes.getElementAttributesPage;
 
 public class WebTableTests {
     public static void main(String[] args) {
-        ChromeDriver driver= CreateDriverAndGetPage();
 
-        updateTable(driver);
-        getTableDetails(driver);
+
+    ChromeDriver driver= getElementAttributesPage();
+     getElementAttributesDetails(driver);
+//
+//      updateTable(driver);
+//      getTableDetails(driver);
 
      driver.quit();
     }
