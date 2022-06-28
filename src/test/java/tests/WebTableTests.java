@@ -7,12 +7,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
+import static tests.WebTablesDemoQA.getDemoQADetails;
+import static tests.WebTablesDemoQA.getDemoqaTablePage;
+
 public class WebTableTests {
     public static void main(String[] args) {
-   ChromeDriver driver=CreateDriverAndGetPage();
+   ChromeDriver driver=getDemoqaTablePage();
 
-
-    updateTable(driver);
+        getDemoQADetails(driver);
+ //
 //      getTableDetails(driver);
 
      driver.quit();
