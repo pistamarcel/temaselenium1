@@ -25,7 +25,7 @@ public class WebTablesDemoQA {
 
         List<WebElement> tableRows = driver.findElements(By.cssSelector("div.rt-tbody .rt-tr-group"));
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < tableRows.size(); i++) {
             WebElement currentRow = tableRows.get(i);
             {
                 List<WebElement> currentColumns = currentRow.findElements(By.cssSelector("div.rt-td"));

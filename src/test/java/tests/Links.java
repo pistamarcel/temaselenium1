@@ -11,19 +11,16 @@ public class Links {
         driver.get("https://demoqa.com/links");
         return driver;
     }
-    public static void getCheckBoxDetails(ChromeDriver driver){
+    public static void getLinkDetails(ChromeDriver driver){
         WebElement created= driver.findElement(By.linkText("Created"));
         created.click();
+        System.out.println(driver.findElement(By.id("linkResponse")).getText());
         WebElement badRequest= driver.findElement(By.linkText("Bad Request"));
         badRequest.click();
         WebElement notFound= driver.findElement(By.linkText("Not Found"));
         notFound.click();
         WebElement home= driver.findElement(By.linkText("Home"));
         home.click();
-
-
-
     }
-
 }
 

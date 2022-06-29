@@ -14,21 +14,21 @@ public class ElementAttributes {
     public static void getElementAttributesDetails(ChromeDriver driver){
         WebElement atributesparagraph= driver.findElement(By.xpath("//div[@class=\"centered\"]//p[@custom-attrib=\"attrib in source at load\" and @title=\"a paragraph to test attributes on\"]"));
         System.out.println("Primul paragraf cu custom atributes: " +atributesparagraph.getText());
-        atributesparagraph.getAttribute("original-title");
+        System.out.println(atributesparagraph.getAttribute("original-title"));
 
+        // selecting by id is enough, we should avoid too complicated locators
         WebElement dynamicAtributes=driver.findElement(By.xpath("//div[@class=\"centered\"]//p[@id=\"jsattributes\"]"));
         System.out.println(dynamicAtributes.getText());
-        System.out.println("nextid initial:"+dynamicAtributes.getAttribute("nextid"));
-
-
+        String nextId = dynamicAtributes.getAttribute("nextid");
+        System.out.println("nextid initial: " + nextId);
         WebElement button=driver.findElement(By.xpath("//div[@class=\"centered\"]//button[@onclick=\"setNewAttrib()\"]"));
-        button.click();
-        button.click();
-        System.out.println("nextid current: " +dynamicAtributes.getAttribute("nextid"));
 
-
+        // random for, just to see how we could extract all custom generated attributes of the paragraph
+        for (int i = 0; i < 5; i++) {
+            button.click();
+            System.out.println("Custom attribute value: " + dynamicAtributes.getAttribute("custom-" + nextId));
+            nextId = dynamicAtributes.getAttribute("nextid");
+            System.out.println("nextid current: " + nextId);
+        }
     }
-
-
-
 }
