@@ -14,20 +14,25 @@ public class RadioButton {
         return driver;
     }
     public static void getRadioButtonDetails(ChromeDriver driver){
-        WebElement yesButton= driver.findElement(By.id("yesRadio"));
-        yesButton.click();
+//        WebElement yesButton= driver.findElement(By.id("yesRadio"));
+//        yesButton.click();
         List<WebElement> labels=driver.findElements(By.cssSelector("label.custom-control-label"));
         WebElement yesLabel= labels.get(0);
-        yesLabel.getText();
+        yesLabel.click();
+        System.out.println(yesLabel.getText());
 
-        WebElement impressiveButton= driver.findElement(By.id(" impressiveRadio"));
-        impressiveButton.click();
+//        WebElement impressiveButton= driver.findElement(By.id("impressiveRadio"));
+//        impressiveButton.click();
         WebElement impressiveLabel=labels.get(1);
-        System.out.println("impressiveLabel.getText()");
+        impressiveLabel.click();
+        System.out.println(impressiveLabel.getText());
+
         WebElement noButton= driver.findElement(By.id("noRadio"));
-        noButton.click();
+        if (noButton.isEnabled()) {
+            noButton.click();
+        }
         WebElement nolabel=labels.get(2);
-        nolabel.getText();
+        System.out.println(nolabel.getText());
 
     }
 

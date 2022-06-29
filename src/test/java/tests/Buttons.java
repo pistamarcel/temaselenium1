@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.List;
+
 public class Buttons {
     public static ChromeDriver getButtonsPage(){
         ChromeDriver driver= WebDriverManager.createChromeDriver();
@@ -13,18 +15,31 @@ public class Buttons {
         return driver;
     }
     public static void getButtonsDetails(ChromeDriver driver){
-        WebElement doubleClick=driver.findElement(By.id("#doubleClickBtn"));
+        WebElement doubleClick=driver.findElement(By.id("doubleClickBtn"));
         Actions act = new Actions(driver);
         act.doubleClick(doubleClick).perform();
-        doubleClick.getText();
+        System.out.println(doubleClick.getText());
+        System.out.println(driver.findElement(By.id("doubleClickMessage")).getText());
+
         WebElement rightClick=driver.findElement(By.id("rightClickBtn"));
         act.contextClick(rightClick).perform();
-        rightClick.getText();
-        WebElement clickbtn=driver.findElement(By.id("rightClickBtn"));
+        System.out.println(rightClick.getText());
+        System.out.println(driver.findElement(By.id("rightClickMessage")).getText());
+
+        WebElement clickbtn = getButtonByText(driver, "Click Me");
         clickbtn.click();
-        clickbtn.getText();
+        System.out.println(clickbtn.getText());
+        System.out.println(driver.findElement(By.id("dynamicClickMessage")).getText());
+    }
 
-
+    private static WebElement getButtonByText(ChromeDriver driver, String text) {
+        List<WebElement> buttons = driver.findElements(By.cssSelector("button.btn.btn-primary"));
+        for (WebElement button : buttons) {
+            if (text.equals(button.getText())) {
+                return button;
+            }
+        }
+        return buttons.get(0);
     }
 }
 

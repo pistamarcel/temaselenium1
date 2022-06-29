@@ -5,30 +5,22 @@ import driver.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.List;
 
-import static tests.WebTablesDemoQA.getDemoQADetails;
-import static tests.WebTablesDemoQA.getDemoqaTablePage;
+import java.util.List;
 
 public class WebTableTests {
 
-
-
-    public static ChromeDriver CreateDriverAndGetPage(){
+    public static ChromeDriver createDriverAndGetPage(){
         ChromeDriver driver= WebDriverManager.createChromeDriver();
         driver.get("https://testpages.herokuapp.com/styled/tag/dynamic-table.html");
         return driver;
 
     }
-
-
-
     public static void getTableDetails(ChromeDriver driver){
-        WebElement tablecaption= driver.findElement(By.cssSelector("#tablehere table caption"));
-        System.out.println("Caption: " +tablecaption.getText());
         WebElement table = driver.findElement(By.cssSelector("#tablehere table"));
+        WebElement tablecaption= table.findElement(By.cssSelector("caption"));
+        System.out.println("Caption: " +tablecaption.getText());
         System.out.println("ID atribute: " +table.getAttribute("id"));
-
 
         // select table rows and columns
         List<WebElement> tableRows= driver.findElements(By.cssSelector("#tablehere table tr"));
@@ -46,10 +38,7 @@ public class WebTableTests {
                 System.out.println("Text din randul "  +(i+1)+ " , coloana 2 " + currentColumns.get(1).getText());
             }
         }
-
     }
-
-
 
    public static void updateTable(ChromeDriver driver){
 
@@ -72,14 +61,9 @@ public class WebTableTests {
        System.out.println(jsonData.getAttribute("value"));
 
        //Press Refresh Button
-       WebElement RefreshTableButton= driver.findElement(By.id("refreshtable"));
-       RefreshTableButton.click();
-
-
+       WebElement refreshTableButton= driver.findElement(By.id("refreshtable"));
+       refreshTableButton.click();
    }
-
-
-
 }
 
 

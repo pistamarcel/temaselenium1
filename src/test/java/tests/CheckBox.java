@@ -16,7 +16,7 @@ public class CheckBox {
 
     public static void getCheckBoxDetails(ChromeDriver driver){
         WebElement home=driver.findElement(By.xpath("//div[@id=\"tree-node\"]//label[@for=\"tree-node-home\"]//span[@class=\"rct-title\"]"));
-        home.getText();
+        System.out.println(home.getText());
         WebElement homeButton=driver.findElement(By.cssSelector("div#tree-node span button"));
         homeButton.click();
 
@@ -29,42 +29,42 @@ public class CheckBox {
 
          //Elemente Desktop
         WebElement desktop=driver.findElement(By.xpath("//div[@id=\"tree-node\"]//label[@for=\"tree-node-desktop\"]//span[@class=\"rct-title\"]"));
-        desktop.getText();
+        System.out.println(desktop.getText());
         desktopButton.click();
         WebElement notes=driver.findElement(By.cssSelector("label[for=\"tree-node-notes\"] span.rct-title"));
         WebElement commands= driver.findElement(By.cssSelector("label[for=\"tree-node-commands\"] span.rct-title"));
         WebElement commandsCheckBox= driver.findElement(By.cssSelector("label[for=\"tree-node-commands\"] span.rct-checkbox"));
-        notes.getText();
+        System.out.println(notes.getText());
         commands.getText();
         commandsCheckBox.click();
 
         //Elemente documents
         WebElement documents=driver.findElement(By.xpath("//div[@id=\"tree-node\"]//label[@for=\"tree-node-documents\"]//span[@class=\"rct-title\"]"));
-        documents.getText();
+        System.out.println(documents.getText());
         documentsButton.click();
           //lista butoane dupa al treilea click
         List<WebElement>documentsButtons2=driver.findElements(By.cssSelector("div#tree-node span button"));
         WebElement workspaceButton=documentsButtons2.get(3);
         workspaceButton.click();
         WebElement react=driver.findElement(By.cssSelector("label[for=\"tree-node-react\"] span.rct-title"));
-        react.getText();
+        System.out.println(react.getText());
         WebElement angular= driver.findElement(By.cssSelector("label[for=\"tree-node-angular\"] span.rct-title"));
-        angular.getText();
+        System.out.println(angular.getText());
         WebElement veu= driver.findElement(By.cssSelector("label[for=\"tree-node-veu\"] span.rct-title"));
-        veu.getText();
+        System.out.println(veu.getText());
         WebElement veuCheckBox=driver.findElement(By.cssSelector("label[for=\"tree-node-veu\"] span.rct-checkbox"));
         veuCheckBox.click();
 
         WebElement officeButton=documentsButtons2.get(4);
         officeButton.click();
         WebElement pub =driver.findElement(By.cssSelector("label[for=\"tree-node-public\"] span.rct-title"));
-        pub.getText();
+        System.out.println(pub.getText());
         WebElement priv = driver.findElement(By.cssSelector("label[for=\"tree-node-private\"] span.rct-title"));
-        priv.getText();
+        System.out.println(priv.getText());
         WebElement classified= driver.findElement(By.cssSelector("label[for=\"tree-node-classified\"] span.rct-title"));
-        classified.getText();
+        System.out.println(classified.getText());
         WebElement general= driver.findElement(By.cssSelector("label[for=\"tree-node-general\"] span.rct-title"));
-        general.getText();
+        System.out.println(general.getText());
         WebElement generalCheckBox=driver.findElement(By.cssSelector("label[for=\"tree-node-general\"] span.rct-checkbox"));
         generalCheckBox.click();
 
@@ -73,13 +73,13 @@ public class CheckBox {
 
         // Elemente downloads
         WebElement downloads=driver.findElement(By.xpath("//div[@id=\"tree-node\"]//label[@for=\"tree-node-downloads\"]//span[@class=\"rct-title\"]"));
-        downloads.getText();
+        System.out.println(downloads.getText());
         WebElement downloadsButton=documentsButtons2.get(5);
         downloadsButton.click();
         WebElement wordFile=driver.findElement(By.cssSelector("label[for=\"tree-node-wordFile\"] span.rct-title"));
-        wordFile.getText();
+        System.out.println(wordFile.getText());
         WebElement excelFile=driver.findElement(By.cssSelector("label[for=\"tree-node-excelFile\"] span.rct-title"));
-        excelFile.getText();
+        System.out.println(excelFile.getText());
         WebElement excelFileCheckBox=driver.findElement(By.cssSelector("label[for=\"tree-node-excelFile\"] span.rct-checkbox"));
         excelFileCheckBox.click();
         System.out.println("Done. Let's start over!");

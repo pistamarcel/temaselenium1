@@ -13,7 +13,7 @@ public class TextBox {
         driver.get("https://demoqa.com/text-box");
         return driver;
     }
-    public static void getFindByPlayGroundDetails(ChromeDriver driver){
+    public static void getTextBoxDetails(ChromeDriver driver){
         WebElement name=driver.findElement(By.cssSelector("div.text-field-container form div input#userName"));
         name.sendKeys("Pista Marcel Cosmin");
 
@@ -28,10 +28,5 @@ public class TextBox {
 
         WebElement button=driver.findElement(By.cssSelector("div div.text-right button#submit"));
         button.click();
-
-
-
     }
-
-
 }
