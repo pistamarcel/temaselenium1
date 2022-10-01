@@ -5,14 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class RadioButton extends Base {
-    public static ChromeDriver getRadioButtonPage(){
-        ChromeDriver driver= WebDriverConfig.createChromeDriver();
 
-        return driver;
-    }
     public  void getRadioButtonDetails(){
         driver.get("https://demoqa.com/radio-button");
         WebElement yesButton= driver.findElement(By.id("yesRadio"));
