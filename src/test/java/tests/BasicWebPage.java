@@ -1,20 +1,19 @@
 package tests;
 
-import driver.WebDriverManager;
+import driver.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class BasicWebPage {
+public class BasicWebPage extends Base{
 
 
 
-    public static ChromeDriver getPageBasic(){
-        ChromeDriver driver= WebDriverManager.createChromeDriver();
+    @Test
+    public  void getBasicPageDetails(){
         driver.get("https://testpages.herokuapp.com/styled/basic-web-page-test.html");
-        return driver;
-    }
-    public static void getBasicPageDetails(ChromeDriver driver){
+
         WebElement firstem= driver.findElement(By.cssSelector("div.explanation p em:first-child"));
         System.out.println("First em is : " +firstem.getText());
         WebElement lastem= driver.findElement(By.cssSelector("div.explanation p em:last-child"));

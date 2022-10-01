@@ -1,19 +1,20 @@
 package tests;
 
-import driver.WebDriverManager;
+import driver.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class RadioButton {
+public class RadioButton extends Base {
     public static ChromeDriver getRadioButtonPage(){
-        ChromeDriver driver= WebDriverManager.createChromeDriver();
-        driver.get("https://demoqa.com/radio-button");
+        ChromeDriver driver= WebDriverConfig.createChromeDriver();
+
         return driver;
     }
-    public static void getRadioButtonDetails(ChromeDriver driver){
+    public  void getRadioButtonDetails(){
+        driver.get("https://demoqa.com/radio-button");
         WebElement yesButton= driver.findElement(By.id("yesRadio"));
         yesButton.click();
         List<WebElement> labels=driver.findElements(By.cssSelector("label.custom-control-label"));

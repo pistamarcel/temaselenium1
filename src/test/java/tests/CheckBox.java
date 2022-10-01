@@ -1,20 +1,18 @@
 package tests;
 
-import driver.WebDriverManager;
+import driver.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class CheckBox {
-    public static ChromeDriver getCheckBoxPage(){
-        ChromeDriver driver= WebDriverManager.createChromeDriver();
+public class CheckBox  extends Base{
+    @Test
+    public  void getCheckBoxDetails(){
         driver.get("https://demoqa.com/checkbox");
-        return driver;
-    }
 
-    public static void getCheckBoxDetails(ChromeDriver driver){
         WebElement home=driver.findElement(By.xpath("//div[@id=\"tree-node\"]//label[@for=\"tree-node-home\"]//span[@class=\"rct-title\"]"));
         home.getText();
         WebElement homeButton=driver.findElement(By.cssSelector("div#tree-node span button"));
@@ -72,7 +70,7 @@ public class CheckBox {
 
 
         // Elemente downloads
-        WebElement downloads=driver.findElement(By.xpath("//div[@id=\"tree-node\"]//label[@for=\"tree-node-downloads\"]//span[@class=\"rct-title\"]"));
+        WebElement downloads= driver.findElement(By.xpath("//div[@id=\"tree-node\"]//label[@for=\"tree-node-downloads\"]//span[@class=\"rct-title\"]"));
         downloads.getText();
         WebElement downloadsButton=documentsButtons2.get(5);
         downloadsButton.click();

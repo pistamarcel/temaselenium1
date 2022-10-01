@@ -1,17 +1,16 @@
 package tests;
 
-import driver.WebDriverManager;
+import driver.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class ElementAttributes {
-    public static ChromeDriver getElementAttributesPage(){
-        ChromeDriver driver= WebDriverManager.createChromeDriver();
+public class ElementAttributes extends Base{
+    @Test
+    public  void getElementAttributesDetails(){
         driver.get("https://testpages.herokuapp.com/styled/attributes-test.html");
-        return driver;
-    }
-    public static void getElementAttributesDetails(ChromeDriver driver){
+
         WebElement atributesparagraph= driver.findElement(By.xpath("//div[@class=\"centered\"]//p[@custom-attrib=\"attrib in source at load\" and @title=\"a paragraph to test attributes on\"]"));
         System.out.println("Primul paragraf cu custom atributes: " +atributesparagraph.getText());
         atributesparagraph.getAttribute("original-title");

@@ -1,19 +1,17 @@
 package tests;
 
-import driver.WebDriverManager;
+import driver.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class TextBox {
+public class TextBox extends Base {
 
 
-    public static ChromeDriver getTextBoxPage(){
-        ChromeDriver driver= WebDriverManager.createChromeDriver();
+    @Test
+    public  void getFindByPlayGroundDetails(){
         driver.get("https://demoqa.com/text-box");
-        return driver;
-    }
-    public static void getFindByPlayGroundDetails(ChromeDriver driver){
         WebElement name=driver.findElement(By.cssSelector("div.text-field-container form div input#userName"));
         name.sendKeys("Pista Marcel Cosmin");
 

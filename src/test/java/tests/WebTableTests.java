@@ -1,29 +1,24 @@
 package tests;
 
 
-import driver.WebDriverManager;
+import driver.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
 import java.util.List;
 
-import static tests.WebTablesDemoQA.getDemoQADetails;
-import static tests.WebTablesDemoQA.getDemoqaTablePage;
-
-public class WebTableTests {
+public class WebTableTests extends Base {
 
 
 
-    public static ChromeDriver CreateDriverAndGetPage(){
-        ChromeDriver driver= WebDriverManager.createChromeDriver();
+
+
+
+    @Test
+    public  void getTableDetails(){
         driver.get("https://testpages.herokuapp.com/styled/tag/dynamic-table.html");
-        return driver;
-
-    }
-
-
-
-    public static void getTableDetails(ChromeDriver driver){
         WebElement tablecaption= driver.findElement(By.cssSelector("#tablehere table caption"));
         System.out.println("Caption: " +tablecaption.getText());
         WebElement table = driver.findElement(By.cssSelector("#tablehere table"));
@@ -50,8 +45,9 @@ public class WebTableTests {
     }
 
 
-
-   public static void updateTable(ChromeDriver driver){
+   @Test
+   public void updateTable(){
+       driver.get("https://testpages.herokuapp.com/styled/tag/dynamic-table.html");
 
        WebElement summary = driver.findElement(By.cssSelector("details summary"));
        summary.click();

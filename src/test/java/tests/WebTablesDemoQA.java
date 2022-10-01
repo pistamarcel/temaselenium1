@@ -1,18 +1,15 @@
 package tests;
-import driver.WebDriverManager;
+import driver.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class WebTablesDemoQA {
-    public static ChromeDriver getDemoqaTablePage(){
-        ChromeDriver driver= WebDriverManager.createChromeDriver();
+public class WebTablesDemoQA  extends Base{
+
+    public  void getDemoQADetails() {
         driver.get("https://demoqa.com/webtables");
-        return driver;
-    }
-    public static void getDemoQADetails(ChromeDriver driver) {
         List<WebElement> headers = driver.findElements(By.cssSelector("div.rt-resizable-header-content"));
         System.out.println("Headers: ");
         System.out.println(headers.get(0).getText());

@@ -1,21 +1,19 @@
 package tests;
 
-import driver.WebDriverManager;
+import driver.WebDriverConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class LocatorsFindByPlayGround {
+public class LocatorsFindByPlayGround  extends Base{
 
-    public static ChromeDriver getFindByPlayGroundPage() {
-        ChromeDriver driver = WebDriverManager.createChromeDriver();
+
+
+    public void getFindByPlayGroundDetails() {
         driver.get("https://testpages.herokuapp.com/styled/find-by-playground-test.html#pName24");
-        return driver;
-    }
 
-    public static void getFindByPlayGroundDetails(ChromeDriver driver) {
         WebElement paragraph = driver.findElement(By.cssSelector("div.specialDiv p#p9 a#a9"));
         System.out.println("Paragraful 9 este: " + paragraph.getText());
 
